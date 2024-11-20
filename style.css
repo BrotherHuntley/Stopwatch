@@ -1,0 +1,175 @@
+:root {
+  --stopwatch-width: clamp(200px, 40vw, 400px);
+  --stopwatch-thickness: calc(var(--stopwatch-width) * 0.2);
+}
+
+body {
+  background-color: #c7c7c7;
+}
+
+.stopwatch {
+  padding-block: calc(var(--stopwatch-width) * 0.1);
+  width: var(--stopwatch-width);
+  margin: auto;
+  margin-top: 20px;
+}
+
+.stopwatch-ring-outer {
+  width: var(--stopwatch-width);
+  height: var(--stopwatch-width);
+  background: rgb(45, 45, 46);
+  background: radial-gradient(
+    circle,
+    rgba(45, 45, 46, 1) 65%,
+    rgb(138, 138, 138) 74%,
+    rgba(45, 45, 46, 1) 81%
+  );
+
+  border-radius: 100%;
+  box-shadow: calc(var(--stopwatch-width) * 0.01)
+    calc(var(--stopwatch-width) * 0.02) #1a1919;
+  position: relative;
+}
+
+.stopwatch-ring-inner {
+  width: calc(var(--stopwatch-width) - var(--stopwatch-thickness));
+  height: calc(var(--stopwatch-width) - var(--stopwatch-thickness));
+  background-color: rgb(45, 45, 46);
+  border-radius: 100%;
+  top: calc(var(--stopwatch-thickness) * 0.5);
+  left: calc(var(--stopwatch-thickness) * 0.5);
+  background-color: rgb(109, 108, 108);
+  position: relative;
+  box-shadow: calc(var(--stopwatch-width) * -0.005)
+    calc(var(--stopwatch-width) * -0.008) rgb(63, 63, 63);
+}
+
+.stopwatch-buttons {
+  position: relative;
+  width: var(--stopwatch-width);
+  top: calc(var(--stopwatch-width) * -1);
+  transform: translateY(calc(var(--stopwatch-width) * 0.1));
+}
+
+.stopwatch-button {
+  width: calc(var(--stopwatch-width) * 0.1);
+  height: calc(var(--stopwatch-width) * 0.08);
+  background: rgb(45, 45, 46);
+  background: linear-gradient(
+    0deg,
+    rgba(45, 45, 46, 1) 20%,
+    rgba(138, 138, 138) 50%,
+    rgba(45, 45, 46, 1) 80%
+  );
+  position: absolute;
+}
+
+.stopwatch-button-left {
+  left: calc(var(--stopwatch-width) * 0.04);
+  transform: rotate(40deg);
+}
+
+.stopwatch-button-top {
+  left: calc(var(--stopwatch-width) * 0.44);
+  rotate: 90deg;
+  translate: 0 calc(var(--stopwatch-width) * -0.185);
+}
+
+.stopwatch-button-right {
+  right: calc(var(--stopwatch-width) * 0.04);
+  transform: rotate(140deg);
+}
+
+.stopwatch-button-tip {
+  width: calc(var(--stopwatch-width) * 0.05);
+  height: calc(var(--stopwatch-width) * 0.12);
+  top: calc(var(--stopwatch-width) * -0.02);
+  background: linear-gradient(
+    0deg,
+    rgba(45, 45, 46, 1) 20%,
+    rgba(138, 138, 138) 50%,
+    rgba(45, 45, 46, 1) 80%
+  );
+  position: absolute;
+}
+
+.stopwatch-label {
+  position: relative;
+  rotate: -90deg;
+  font-size: calc(var(--stopwatch-thickness) * 0.4);
+  translate: calc(var(--stopwatch-thickness) * 0.55)
+    calc(var(--stopwatch-thickness) * 0.3);
+}
+
+.stopwatch-start {
+  color: rgb(0, 207, 10);
+}
+
+.stopwatch-reset {
+  color: rgb(217, 255, 0);
+}
+
+.stopwatch-stop {
+  color: rgb(255, 0, 0);
+}
+
+.stopwatch-display {
+  --stopwatch-display-width: calc(
+    var(--stopwatch-width) - calc(var(--stopwatch-thickness) * 2)
+  );
+  --stopwatch-display-height: calc(var(--stopwatch-width) * 0.3);
+  width: var(--stopwatch-display-width);
+  height: var(--stopwatch-display-height);
+  background-color: rgb(54, 191, 255);
+  position: relative;
+  top: calc(
+    calc(var(--stopwatch-width) * -0.45) -
+      calc(var(--stopwatch-display-height) / 2)
+  );
+  left: var(--stopwatch-thickness);
+  border-radius: calc(var(--stopwatch-width) * 0.1);
+  box-shadow: calc(var(--stopwatch-width) * -0.005)
+    calc(var(--stopwatch-width) * -0.01) rgb(63, 63, 63);
+}
+
+.stopwatch-display-text {
+  line-height: var(--stopwatch-display-height);
+  font-size: calc(var(--stopwatch-display-height) * 0.5);
+  text-align: center;
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.stopwatch-display-text > * {
+  display: inline-block;
+  width: 50%;
+}
+
+.stopwatch-logo {
+  --stopwatch-logo-width: calc(
+    var(--stopwatch-width) - calc(var(--stopwatch-thickness) * 2)
+  );
+  --stopwatch-logo-height: calc(var(--stopwatch-width) * 0.3);
+  width: var(--stopwatch-logo-width);
+  height: var(--stopwatch-logo-height);
+  position: relative;
+  top: calc(
+    calc(var(--stopwatch-width) * -1) - calc(var(--stopwatch-logo-height) / 2)
+  );
+  left: var(--stopwatch-thickness);
+  border-radius: calc(var(--stopwatch-width) * 0.1);
+}
+
+.stopwatch-logo-text {
+  line-height: var(--stopwatch-logo-height);
+  font-size: calc(var(--stopwatch-logo-height) * 0.3);
+  text-align: center;
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
